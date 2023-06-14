@@ -45,6 +45,10 @@ After executing this commands, Node.js will download and install the required li
 
 By following these instructions, Windows and macOS users who are using Visual Studio Code will be able to install Node.js and the necessary libraries (Express, node-osc, ws, and body-parser) and use Visual Studio Code's integrated terminal for executing commands.
 
+
+
+
+
 # Getting Started
 
 In your Terminal type the following to start the server:
