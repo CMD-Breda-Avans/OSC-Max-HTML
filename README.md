@@ -1,9 +1,9 @@
 # OSC-Max-HTML
 Send and receive OSC messages between MaxMSP and HTML
 
-Installing Node.js
+### Installing Node.js
 
-Windows:
+## Windows:
 1. Visit the official Node.js website: https://nodejs.org/
 2. On the homepage, click on the "Downloads" button.
 3. The website should automatically detect your operating system and provide the recommended installer.
@@ -18,7 +18,7 @@ Windows:
 
 You should see the version number of Node.js displayed in the terminal.
 
-macOS:
+#### macOS:
 1. Visit the official Node.js website: https://nodejs.org/
 2. On the homepage, click on the "Downloads" button.
 3. The website should automatically detect your operating system and provide the recommended installer.
