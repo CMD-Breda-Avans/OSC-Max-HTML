@@ -45,3 +45,16 @@ After executing this commands, Node.js will download and install the required li
 
 By following these instructions, Windows and macOS users who are using Visual Studio Code will be able to install Node.js and the necessary libraries (Express, node-osc, ws, and body-parser) and use Visual Studio Code's integrated terminal for executing commands.
 
+# Getting Started
+
+In your Terminal type the following to start the server:
+
+                                node server.js
+                                
+It should respond with : **Server listening on port 3000** . If there is a diferent response and you get a prompt then you need to follorw the instructions again to find a solution.
+
+Once the server is running go to your browser and type:
+
+                                localhost:3000
+
+You should see the initial index.html page with many methods for sending OSC messages from a browser and/or receiving OSC messages from MaxMSP.  You will find the Max patch in the Max folder.
