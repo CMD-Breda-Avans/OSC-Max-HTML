@@ -32,7 +32,8 @@ You should see the version number of Node.js displayed in the terminal.
         
     You should see the version number of Node.js displayed in the terminal.
 
-# Installing Libraries ##(Express, node-osc, ws, and body-parser)
+# Installing Libraries 
+## Express, node-osc, ws, and body-parser
 
 ### Windows and macOS:
 1. Using Visual Studio Code open the folder **OSCtoMaxandHTML** .
