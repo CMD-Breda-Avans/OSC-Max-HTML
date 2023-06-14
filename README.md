@@ -35,9 +35,9 @@ You should see the version number of Node.js displayed in the terminal.
 ## Installing Libraries (Express, node-osc, ws, and body-parser)
 
 ### Windows and macOS:
-1. Open Visual Studio Code.
-2. Open a new integrated terminal by clicking on "View" in the top menu and selecting "Terminal" or by using the shortcut Ctrl+ backtick (`).
-3. To install Express, type the following command in the integrated terminal:
+1. Using Visual Studio Code open the folder **OSCtoMaxandHTML** .
+2. Open a new terminal by clicking on "View" in the top menu and selecting "Terminal" or by using the shortcut Ctrl+ backtick (`).
+3. To install the necessary NodeJS libraries **Express**, **Node-OSC**, **WS** and **Body Parcer**. You need to type the following command in the terminal:
 
         npm install express node-osc ws body-parser
         
