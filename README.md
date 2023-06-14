@@ -1,9 +1,9 @@
 # OSC-Max-HTML
 Send and receive OSC messages between MaxMSP and HTML
 
-### Installing Node.js
+## Installing Node.js
 
-## Windows:
+### Windows:
 1. Visit the official Node.js website: https://nodejs.org/
 2. On the homepage, click on the "Downloads" button.
 3. The website should automatically detect your operating system and provide the recommended installer.
@@ -18,7 +18,7 @@ Send and receive OSC messages between MaxMSP and HTML
 
 You should see the version number of Node.js displayed in the terminal.
 
-#### macOS:
+### macOS:
 1. Visit the official Node.js website: https://nodejs.org/
 2. On the homepage, click on the "Downloads" button.
 3. The website should automatically detect your operating system and provide the recommended installer.
@@ -32,9 +32,9 @@ You should see the version number of Node.js displayed in the terminal.
         
     You should see the version number of Node.js displayed in the terminal.
 
-Installing Libraries (Express, node-osc, ws, and body-parser)
+## Installing Libraries (Express, node-osc, ws, and body-parser)
 
-Windows and macOS:
+### Windows and macOS:
 1. Open Visual Studio Code.
 2. Open a new integrated terminal by clicking on "View" in the top menu and selecting "Terminal" or by using the shortcut Ctrl+ backtick (`).
 3. To install Express, type the following command in the integrated terminal:
