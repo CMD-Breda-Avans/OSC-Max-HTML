@@ -39,7 +39,8 @@ You should see the version number of Node.js displayed in the terminal.
 2. Open a new terminal by clicking on "View" in the top menu and selecting "Terminal" or by using the shortcut Ctrl+ backtick (`).
 3. To install the necessary NodeJS libraries **Express**, **Node-OSC**, **WS** and **Body Parcer**. You need to type the following command in the terminal:
 
-        npm install express node-osc ws body-parser
+                                   npm init -y
+                                   npm install express node-osc ws body-parser
         
 After executing this commands, Node.js will download and install the required libraries.
 
