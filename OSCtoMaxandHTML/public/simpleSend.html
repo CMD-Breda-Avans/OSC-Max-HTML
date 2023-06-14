@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="receives">
+        <!-- HEADER -->
+        <h1>Send OSC </h1> <br>
+        <img src="./img/maxlogo.png"><br><br>
+        <h4> <a href="./index.html">Home</a> / <a href="./simpleReceive.html">Simple Receive</a></h4>
+    </div>
+    <div class="receives">
+        Here when you click on things you send OSC messages to MaxMSP port <b>7777</b><br>
+        <br>
+        <!-- BUTTON SENDS MESSAGE VIA ONCLICK FUNTION -->
+        <button type="submit" onclick="sendOSCMessage('/msg1', ['Chicken'])">send a message</button><br><br>
+
+        <!-- CHECKBOX SENDS ITS STATE TO /msg2 -->
+        <input type="checkbox" onclick="sendOSCMessage('/msg2', [this.checked])"><br><br>
+        
+        <!-- TYPE ANYTHING AND SEND AFTER RETURN TO /msg3 -->
+        <input type="text" width=20 onchange="sendOSCMessage('/msg3', [this.value])"><br><br>
+        
+        <!-- SEND SLIDER VALUE TO SLIDER IN MAX VIA /msg4 -->
+        <input type="range" min="1" max="100" value="0" onclick="sendOSCMessage('/msg4', [this.value])"><br>
+
+    </div>
+
+
+
+    <!-- YOU NEED THE SCRIPT.JS file -->
+    <script src="script.js"></script>
+
+    <!-- YOU NEED THIS SEND FUNCTION -->
+
+</body>
+</html>
