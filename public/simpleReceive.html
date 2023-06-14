@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="sends">
+        <!-- HEADER -->
+        <h1>Receive OSC</h1> <br>
+        <img src="./img/maxlogo.png"><br><br>
+        <h4><a href="./index.html">Home</a> / <a href="./simpleSend.html">Simple Send</a></h4>
+    </div>
+    <div class="sends">
+
+                <!-- BOX 2 -->
+                Receive Input Field values from MaxMSP on port <b>3333</b><br><br>
+                checkbox 1 <input type="checkbox" id="box2a"><br>
+                checkbox 2 <input type="checkbox" id="box2b" name="checkbox2b">
+                <br>
+                <input type="text" id="box2e"><br>
+                radio 1 <input type="radio" name="myRadio" id="box2c"><br>
+                radio 2 <input type="radio" name="myRadio" id="box2d"><br>
+                <input type="button" value="button" id="box2f"><br>
+                <br>
+                <input type="range" min="1" max="100" value="0" id="box2g"><br>
+
+    </div>
+
+
+
+    <script>
+        function checkForOSCMessages(oscMessage){
+            // BOX 2
+            let box2a = document.querySelector("#box2a");
+            if(oscMessage[0] == "/box2a"){box2a.checked = oscMessage[1];} // checkbox
+            if(oscMessage[0] == "/box2b"){box2b.checked = oscMessage[1];} // checkbox
+            if(oscMessage[0] == "/buttonSubmit"){document.getElementById("buttonSubmit").submit();} // BUG
+            if(oscMessage[0] == "/box2c"){box2c.checked = oscMessage[1];} // radio button
+            if(oscMessage[0] == "/box2d"){box2d.checked = oscMessage[1];} // radio button
+            if(oscMessage[0] == "/box2e"){box2e.value = oscMessage[1];} // text field
+            if(oscMessage[0] == "/box2f"){box2f.value = oscMessage[1];} // button
+            if(oscMessage[0] == "/box2g"){box2g.value = oscMessage[1];} // button
+        }
+    </script>
+
+        <!-- YOU NEED THE SCRIPT.JS file -->
+        <script src="script.js"></script>
+
+</body>
+</html>

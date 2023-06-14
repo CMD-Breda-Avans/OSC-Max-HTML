@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="style.css" rel="stylesheet">
+  <title>OSC Receiver</title>
+</head>
+<body>
+    <div id="header">
+        <!-- HEADER -->
+        <h1>OSC Messages</h1> <br>
+        <img src="./img/maxlogo.png"><br><br>
+    </div>
+
+    <div class="receives">
+        <!-- BOX 4 -->
+
+        <h2>SEND OSC</h2>
+        <!-- TWO BUTTONS SEND MESSAGES TO /msg1 -->
+        <button type="submit" onclick="sendOSCMessage('/msg1', ['Pindakaas'])">send a message</button>
+        <button type="submit" onclick="sendOSCMessage('/msg1', ['Avocado'])">send another message</button><br><br>
+
+        <!-- CHECKBOX SENDS ITS STATE TO /msg2 -->
+        <input type="checkbox" onclick="sendOSCMessage('/msg2', [this.checked])"><br><br>
+        
+        <!-- TYPE ANYTHING AND SEND AFTER RETURN TO /msg3 -->
+        <input type="text" width=20 onchange="sendOSCMessage('/msg3', [this.value])"><br><br>
+        
+        <!-- SEND SLIDER VALUE TO SLIDER IN MAX VIA /msg4 -->
+        <input type="range" min="1" max="100" value="0" onclick="sendOSCMessage('/msg4', [this.value])"><br>
+
+    </div>
+    <div class="receives">
+        <!-- BOX 5 -->
+
+        <!-- JUST SHOWS THE RANDOM NUMBER SENT FROM FUNCTION randomSend VIA /msg5 -->
+        let JS just send random values <p id="randomSend">like</p>
+
+    </div>
+    <div class="receives">
+        <h4>Note:</h4><br>
+        In each html tag you place an <b>onclick</b> or an <b>onchange</b> that triggers the <b>sendOSCMessage</b> function.
+        By changing the arguments in the function you can send different messages to different <b>OSC IDs</b>.
+    </div>
+
+    <div>
+        Send and Receive messages from Max/MSP<br>
+        Requires <b>NodeJS</b> libraries: <b>express</b>, <b>node-osc</b>, <b>ws</b> and <b>body-parser</b>.<br>
+        <br>
+        For instructions on How to install Node please see the GitHub page : here<br>
+        <br>
+        examples:
+        <h4><a href="./simpleSend.html">Simple Send</a> / <a href="./simpleReceive.html">Simple Receive</a></h4>
+    </div>
+
+    <div class="sends">
+        <!-- BOX 1 -->
+        <h2>RECEIVE OSC</h2>
+        Receive and Post to an ID : <p class="oscMsg" id="box1a">id=box1a</p><br>
+        <br>
+        <h4>Note:</h4><br>
+        In the <b>index.html</b> file between script tags you will find the <b>checkForOSCMessages</b> function. <br>
+        In there you will put all the messages you expect from <b>MaxMSP</b>.
+    </div>
+    <div class="sends">
+        <form action="indexReceived.html" method="get">
+        <!-- BOX 2 -->
+            Receive Input Field values<br><br>
+            checkbox 1 <input type="checkbox" id="box2a"><br>
+            checkbox 2 <input type="checkbox" id="box2b" name="checkbox2b">
+            <button type="submit" id="buttonSubmit">Send</button><br>
+            <input type="text" id="box2e"><br>
+            radio 1 <input type="radio" name="myRadio" id="box2c"><br>
+            radio 2 <input type="radio" name="myRadio" id="box2d"><br>
+            <input type="button" value="button" id="box2f"><br>
+            <br>
+            <input type="color">
+        </form>
+    </div>
+
+    
+    <div class="sends">
+        <!-- BOX 3 -->
+        Receive Streaming Numbers<br><br>
+        <input type="number" id="box3a"><br><br>
+        <input type="number" id="box3b" step="0.1"><br><br>
+        <input type="range" min="1" max="100" value="0">
+
+    </div>
+
+
+    <script>
+
+        // RECEIVE OSC MESSAGES
+        function checkForOSCMessages(oscMessage){
+
+            // INSERT YOU DETECTORS HERE
+        
+            // BOX 1
+            let box1a = document.querySelector("#box1a");
+            if(oscMessage[0] == "/box1a"){box1a.innerHTML = 'My Message : '+oscMessage[1];} // paragraph
+            
+            // BOX 2
+            let box2a = document.querySelector("#box2a");
+            if(oscMessage[0] == "/box2a"){box2a.checked = oscMessage[1];} // checkbox
+            if(oscMessage[0] == "/box2b"){box2b.checked = oscMessage[1];} // checkbox
+            if(oscMessage[0] == "/buttonSubmit"){document.getElementById("buttonSubmit").submit();} // BUG
+            if(oscMessage[0] == "/box2c"){box2c.checked = oscMessage[1];} // radio button
+            if(oscMessage[0] == "/box2d"){box2d.checked = oscMessage[1];} // radio button
+            if(oscMessage[0] == "/box2e"){box2e.value = oscMessage[1];} // text field
+            if(oscMessage[0] == "/box2f"){box2f.value = oscMessage[1];} // button
+            
+            // BOX 3
+            let box3a = document.querySelector("#box3a");
+            if(oscMessage[0] == "/box3a"){box3a.value = oscMessage[1];} // number field
+            if(oscMessage[0] == "/box3b"){box3b.value = oscMessage[1];} // number field
+            
+        
+        }
+
+        // SEND OSC MESSAGES
+        function sendOSCMessage(address, args) {
+            if (socket.readyState === WebSocket.OPEN) {
+                const oscMessage = {
+                    address: address,
+                    args: args
+                };
+
+            socket.send(JSON.stringify(oscMessage));
+            console.log('Sent OSC message:', oscMessage);
+                } else {
+                console.log('WebSocket connection not open');
+                }
+        }
+
+
+      // BOX 2 - REPEATING FUNCTION SENDS RANDOM NUMBER VIA OSC TO /msg5
+      function randomSend(){
+        let myValue = Math.floor(Math.random()*100);
+        document.querySelector("#randomSend").innerHTML = myValue;
+        sendOSCMessage('/msg5', [myValue]);
+      }
+      setInterval(randomSend, 1000);
+
+
+    </script>
+    <script src="script.js"></script>
+
+</body>
+</html>

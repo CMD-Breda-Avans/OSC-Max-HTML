@@ -1,0 +1,54 @@
+body{
+    border:0;
+    padding:0;
+    margin: 0;
+    margin-top: 1vw;
+    font-family:Arial;
+
+    display: grid;
+    grid-template-columns: 24vw 24vw 24vw 24vw;
+    grid-template-rows: 24vw 24vw 24vw 24vw;
+    gap: 1vw;
+}
+
+h4{
+    display: inline;
+}
+
+a{
+    text-decoration:none;
+}
+
+div{
+    background-color: lightblue;
+    padding: 10px;
+    line-height: 150%;
+}
+
+.oscMsg{
+    color: green;
+    font-size: 16px;
+}
+
+input[type=text], input[type=number]{
+    color: green;
+}
+
+.sends{
+    background-color: lightgreen;
+}
+
+.receives{
+    background-color: rgb(255, 160, 122);
+}
+
+img{
+    width: 10vw;
+    height: 10vw;
+    padding-left: 6vw;
+}
+
+p{
+    display: inline;
+    color: green;
+}
